@@ -1,34 +1,39 @@
 #include <stdio.h>
-
+#include<stdlib.h>
 char input[100];  
 int ind = 0;
-
-void match(char expected) {
-    if (input[ind] == expected) {
+void match(char expected) 
+{
+    if (input[ind] == expected) 
+    {
         ind++;
-    } 
+    }
 }
-
 void A();
-
-void S() {
+void S() 
+{
     match('c');
     A();
     match('d');
 }
-
-void A() {
-    if (input[ind] == 'a') {
+void A() 
+{
+    if (input[ind] == 'a') 
+    {
+        printf("Hello\n");
         match('a');
         match('b');
-    } else if (input[ind] == 'a') {
+    } /*else if (input[ind] == 'a') 
+    {
+        printf("Hi!\n");
         match('a');
-    } else {
-        printf("Parsing failed. Expected 'a' or 'a' at position %d.\n", ind);
-        
+    }*/
+    else 
+    {  
+        printf("Parsing failed.\n", ind);
+        exit(1);
     }
 }
-
 int main() {
     printf("Enter the input string:\n");
     scanf("%s", input);
